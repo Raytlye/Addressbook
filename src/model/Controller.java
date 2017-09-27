@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
@@ -33,7 +33,7 @@ public class Controller implements ActionListener{
 	public boolean openFileChooser() {
 		JFileChooser jfc = new JFileChooser("C:\\Users\\lvonnied\\eclipse-workspace\\Swing Address book");
 
-		int returnValue = jfc.showOpenDialog(null);
+		int returnValue = jfc.showOpenDialog(adTable);
 
 		if (returnValue == JFileChooser.APPROVE_OPTION) {
 			selectedFile = jfc.getSelectedFile();
@@ -47,19 +47,18 @@ public class Controller implements ActionListener{
 	
 	public void openSaveAsDirectory() {
 		
-	    JFrame frame = new JFrame("Save file as");
-
-	    String name = JOptionPane.showInputDialog(frame, "Please type a name for your file");
-	    
-	    if(name == null) {
-	    	
-	    	name = "file";
-	    	
-	    }
-	    
-	    File fileName = new File(SAVE_LOCATION + FILE_SEPERATOR + name + FILE_SUFFIX);
-
-	    book.saveUser(fileName);
+		String name;
+		do {
+		    name = JOptionPane.showInputDialog(null, "Please type a name for your file");
+		    if(name == null) {
+		        break;
+		    }
+		} while(name.isEmpty());
+		
+		if(name!=null) {
+			File fileName = new File(SAVE_LOCATION + FILE_SEPERATOR + name + FILE_SUFFIX);
+			book.saveUser(fileName);
+		}
 		
 	}
 	
@@ -79,6 +78,42 @@ public class Controller implements ActionListener{
 		
 	}
 	
+	public void createJOptionSelectPane() {
+		
+		JDialog dialog = new JDialog();
+		JOptionPane.showMessageDialog(dialog,
+				"Please select one row!",
+				"Warning",
+		JOptionPane.WARNING_MESSAGE);
+			
+	}
+	
+	public void createJOptionOpenPane() {
+		
+		JDialog dialog = new JDialog();
+		JOptionPane.showMessageDialog(dialog,
+				"Please open a file first!",
+				"Warning",
+		JOptionPane.WARNING_MESSAGE);
+		
+	}
+	
+	public void checkCounter() {
+		
+		if(adTable.createTableCounter > 0) {
+			adTable.removeTablePanel();
+		}
+		
+	}
+	
+	public void createAndUpdateUI() {
+		
+		adTable.createTablePanel();
+		adTable.createTableCounter++;
+		SwingUtilities.updateComponentTreeUI(adTable);
+		
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -93,66 +128,34 @@ public class Controller implements ActionListener{
 			
 		case "DELETE":
 				
-			if(adTable.table.getSelectedRowCount() != 1) {
-					
-				JFrame frame = new JFrame();
-				JOptionPane.showMessageDialog(frame,
-						"Please select one row!",
-						"Warning",
-				JOptionPane.WARNING_MESSAGE);
-					
-				}
+			if(adTable.table.getSelectedRowCount() != 1) {createJOptionSelectPane();}
 			
-			else {
-					
-				new DeleteMessage(adTable, book, adTable.table);	
-				
-			}
+			else {new DeleteMessage(adTable, book, adTable.table);}
 			
 			break;
 			
 		case "EDIT":
 			
-			if(adTable.table.getSelectedRowCount() != 1) {
-				
-				JFrame frame = new JFrame();
-				JOptionPane.showMessageDialog(frame,
-						"Please select one row!",
-						"Warning",
-				JOptionPane.WARNING_MESSAGE);
-					
-				}
+			if(adTable.table.getSelectedRowCount() != 1) {createJOptionSelectPane();}
 			
-			else {
-					
-				new ValueEditWindow(adTable, book, adTable.table);	
-				
-			}
+			else {new ValueEditWindow(adTable, book, adTable.table);}
 			
 			break;
 			
 		case "READ":
 			if(openFileChooser() == true) {
-				if(adTable.createTableCounter > 0) {
-					adTable.removeTablePanel();
-				}
-				adTable.createTablePanel();
-				adTable.createTableCounter++;
-				SwingUtilities.updateComponentTreeUI(adTable);
+				checkCounter();
+				createAndUpdateUI();
 			}
 			
 			break;
 			
 		case "NEWFILE":
 			
-			if(adTable.createTableCounter > 0) {
-				adTable.removeTablePanel();
-			}
+			checkCounter();
 			book.setEmptyAddressBook();
 			setEmptySelectedFile();
-			adTable.createTablePanel();
-			adTable.createTableCounter++;
-			SwingUtilities.updateComponentTreeUI(adTable);
+			createAndUpdateUI();
 			break;
 		
 		case "SAVEAS":
@@ -160,38 +163,24 @@ public class Controller implements ActionListener{
 			if(adTable.tableIsVisible == true) {
 				openSaveAsDirectory();
 			}else {
-				JFrame frame = new JFrame();
-				JOptionPane.showMessageDialog(frame,
-						"Please open a file first!",
-						"Warning",
-				JOptionPane.WARNING_MESSAGE);
+				createJOptionOpenPane();
 			}
 			break;
 			
 		case "SAVE":
 			
-			if(adTable.tableIsVisible == true) {
-				openSaveDirectory();
-			}else {
-				JFrame frame = new JFrame();
-				JOptionPane.showMessageDialog(frame,
-						"Please open a file first!",
-						"Warning",
-				JOptionPane.WARNING_MESSAGE);
-			}
-				break;
+			if(adTable.tableIsVisible == true) {openSaveDirectory();}
+			else {createJOptionOpenPane();}
+			break;
 			
 		case "EXIT":
-			int result = JOptionPane.showConfirmDialog(null, 
-					   "Are you sure you wish to exit application?",null, JOptionPane.YES_NO_OPTION);
-					if(result == JOptionPane.YES_OPTION) {
-					    System.exit(0);
-					}
+			int result = JOptionPane.showConfirmDialog(null, "Any unsaved changes will be lost. Do you wish to proceed?",null, JOptionPane.YES_NO_OPTION);
+			if(result == JOptionPane.YES_OPTION) {System.exit(0);}
 			break;
 			
 		default :
-			JFrame frame = new JFrame();
-			JOptionPane.showMessageDialog(frame,
+			JDialog dialog = new JDialog();
+			JOptionPane.showMessageDialog(dialog,
 				    "Something went horribly wrong!",
 				    "Error",
 				    JOptionPane.ERROR_MESSAGE);
