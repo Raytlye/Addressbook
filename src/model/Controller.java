@@ -176,8 +176,12 @@ public class Controller implements ActionListener{
 			
 		case "EXIT":
 			
-			int result = JOptionPane.showConfirmDialog(null, "Any unsaved changes will be lost. Do you wish to proceed?",null, JOptionPane.YES_NO_OPTION);
-			if(result == JOptionPane.YES_OPTION) {System.exit(0);}
+			int result = JOptionPane.showConfirmDialog(null, "Any unsaved changes will be lost. Do you wish to save first?",null, JOptionPane.YES_NO_OPTION);
+			if(result == JOptionPane.YES_OPTION) {
+				openSaveDirectory();
+				System.exit(0);
+			}
+			else {System.exit(0);}
 			break;
 			
 		default :
