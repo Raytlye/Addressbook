@@ -147,6 +147,8 @@ public class ValueInputWindow extends JDialog implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		if(!txtStudiengang.getText().isEmpty()&&!txtNachname.getText().isEmpty()&&!txtVorname.getText().isEmpty()&&ValueEditWindow.isNumeric(txtPID.getText())) {
+		
 		String studiengang = txtStudiengang.getText();
 		String nachname = txtNachname.getText();
 		String vorname = txtVorname.getText();
@@ -156,7 +158,8 @@ public class ValueInputWindow extends JDialog implements ActionListener {
 		User user = new User(studiengang, nachname, vorname, pid, vegan);
 		book.addUser(user);
 		
-		this.setVisible(false);
+		dispose();
+		}
 	}
 
 }

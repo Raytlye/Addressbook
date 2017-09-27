@@ -39,7 +39,7 @@ public class ValueEditWindow extends JDialog implements ActionListener {
 		super(parent, true);
 		this.book = book;
 		this.table = table;
-		setTitle("New Entry");
+		setTitle("Edit Entry");
 		
 		index = table.convertRowIndexToModel(table.getSelectedRow());
 		ArrayList<User> users = book.getAddressBook();
@@ -129,21 +129,39 @@ public class ValueEditWindow extends JDialog implements ActionListener {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
+	
+	public static boolean isNumeric(String str)  
+	{  
+	  try  
+	  {  
+	    @SuppressWarnings("unused")
+		int i = Integer.parseInt(str);  
+	  }  
+	  catch(NumberFormatException nfe)  
+	  {  
+	    return false;  
+	  }  
+	  return true;  
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
-		String studiengang = txtStudiengang.getText();
-		String nachname = txtNachname.getText();
-		String vorname = txtVorname.getText();
-		int pid = Integer.parseInt(txtPID.getText());
-		boolean vegan = chcbxVegan.isSelected();
+		if(!txtStudiengang.getText().isEmpty()&&!txtNachname.getText().isEmpty()&&!txtVorname.getText().isEmpty()&&isNumeric(txtPID.getText())) {
 		
-		User user = new User(studiengang, nachname, vorname, pid, vegan);
-		
-		book.updateUser(user, index);
-		
-		setVisible(false);
+			String studiengang = txtStudiengang.getText();
+			String nachname = txtNachname.getText();
+			String vorname = txtVorname.getText();
+			int pid = Integer.parseInt(txtPID.getText());
+			boolean vegan = chcbxVegan.isSelected();
+			
+			User user = new User(studiengang, nachname, vorname, pid, vegan);
+			
+			book.updateUser(user, index);
+			
+			dispose();
+			
+		}
 		
 	} 
 
