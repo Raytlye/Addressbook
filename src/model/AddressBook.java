@@ -35,7 +35,7 @@ public class AddressBook {
 		
 		for(AddressBookListener listener : listeners) {
 					
-			listener.userAdded();
+			listener.userChanged();
 				
 		}
 			
@@ -46,7 +46,7 @@ public class AddressBook {
 		addressBook.remove(user);
 		for(AddressBookListener listener : listeners) {
 			
-			listener.userRemoved();
+			listener.userChanged();
 			
 		}
 		
