@@ -143,6 +143,7 @@ public class Controller implements ActionListener{
 			break;
 			
 		case "READ":
+			
 			if(openFileChooser() == true) {
 				checkCounter();
 				createAndUpdateUI();
@@ -174,6 +175,7 @@ public class Controller implements ActionListener{
 			break;
 			
 		case "EXIT":
+			
 			int result = JOptionPane.showConfirmDialog(null, "Any unsaved changes will be lost. Do you wish to proceed?",null, JOptionPane.YES_NO_OPTION);
 			if(result == JOptionPane.YES_OPTION) {System.exit(0);}
 			break;
@@ -186,7 +188,6 @@ public class Controller implements ActionListener{
 				    JOptionPane.ERROR_MESSAGE);
 			
 			break;
-			
 		
 		}
 		
