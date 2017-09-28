@@ -6,7 +6,6 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
@@ -130,18 +129,16 @@ public class ValueEditWindow extends JDialog implements ActionListener {
 		setVisible(true);
 	}
 	
-	public static boolean isNumeric(String str)  
-	{  
-	  try  
-	  {  
-	    @SuppressWarnings("unused")
-		int i = Integer.parseInt(str);  
-	  }  
-	  catch(NumberFormatException nfe)  
-	  {  
-	    return false;  
-	  }  
-	  return true;  
+	public static boolean isNumeric(String str)  {
+		
+		try  {
+			@SuppressWarnings("unused")
+			int i = Integer.parseInt(str); 
+		} catch(NumberFormatException nfe) {
+			return false;
+		}
+		
+		return true;  
 	}
 
 	@Override

@@ -3,6 +3,8 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.logging.Logger;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +14,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
+import logger.FileLogger;
 import model.AddressBook;
 import model.AddressBookListener;
 import model.Controller;
@@ -39,6 +43,9 @@ public class AddressTable extends JFrame implements AddressBookListener {
 	public JButton btnEdit;
 	public JButton btnDelete;
 	private ListListener listener;
+	
+	FileLogger fl = new FileLogger();
+	Logger logger = fl.getLogger();
 
 	public AddressTable(AddressBook book) {
 		
@@ -109,6 +116,7 @@ public class AddressTable extends JFrame implements AddressBookListener {
 	
 	public void createTablePanel() {
 		
+		logger.info("Creating TablePanel");
 		tableModel = new TableModel(book);
 		btnPanel.setVisible(true);
 		tableIsVisible = true;
@@ -130,6 +138,7 @@ public class AddressTable extends JFrame implements AddressBookListener {
 	
 	public void removeTablePanel() {
 		
+		logger.info("Removing TablePanel");
 		remove(tablePanel);
 		
 	}
@@ -137,6 +146,7 @@ public class AddressTable extends JFrame implements AddressBookListener {
 	@Override
 	public void userChanged() {
 		
+		logger.info("Refreshing tableModel and disabling btnDelete and btnEdit");
 		tableModel.fireTableDataChanged();
 		btnDelete.setEnabled(false);
 		btnEdit.setEnabled(false);

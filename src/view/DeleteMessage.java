@@ -67,7 +67,7 @@ public class DeleteMessage extends JDialog implements ActionListener {
 		ArrayList<User> users = book.getAddressBook();
 		User user = users.get(table.convertRowIndexToModel(table.getSelectedRow()));
 		book.removeUser(user);
-		setVisible(false);
+		dispose();
 		
 	}
 
