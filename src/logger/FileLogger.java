@@ -29,7 +29,7 @@ public class FileLogger {
 		
 		logger = Logger.getLogger("FileLogger");
 		logger.addHandler(fileHandler);
-		//logger.setUseParentHandlers(false);
+		logger.setUseParentHandlers(false);
 		fileLogger = this;
 		
 	}
