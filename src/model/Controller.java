@@ -22,6 +22,7 @@ public class Controller implements ActionListener{
 	private String FILE_SEPERATOR = "/";
 	private String FILE_SUFFIX = ".object";
 	private AddressTable adTable;
+	private boolean isSaved = true;
 	
 	public Controller(AddressBook book, AddressTable adTable) {
 		
@@ -58,6 +59,7 @@ public class Controller implements ActionListener{
 		if(name!=null) {
 			File fileName = new File(SAVE_LOCATION + FILE_SEPERATOR + name + FILE_SUFFIX);
 			book.saveUser(fileName);
+			isSaved = true;
 		}
 		
 	}
@@ -66,6 +68,7 @@ public class Controller implements ActionListener{
 		
 		if(selectedFile != null) {
 			book.saveUser(selectedFile);
+			isSaved = true;
 		}else {
 			openSaveAsDirectory();
 		}
@@ -108,6 +111,7 @@ public class Controller implements ActionListener{
 	
 	public void createAndUpdateUI() {
 		
+		isSaved = false;
 		adTable.createTablePanel();
 		adTable.createTableCounter++;
 		SwingUtilities.updateComponentTreeUI(adTable);
@@ -145,6 +149,12 @@ public class Controller implements ActionListener{
 		case "READ":
 			
 			if(openFileChooser() == true) {
+				if(!isSaved) {
+					int result = JOptionPane.showConfirmDialog(null, "Any unsaved changes will be lost. Do you wish to save first?",null, JOptionPane.YES_NO_OPTION);
+					if(result == JOptionPane.YES_OPTION) {
+						openSaveDirectory();
+					}
+				}
 				checkCounter();
 				createAndUpdateUI();
 			}
@@ -152,7 +162,12 @@ public class Controller implements ActionListener{
 			break;
 			
 		case "NEWFILE":
-			
+			if(!isSaved) {
+				int result = JOptionPane.showConfirmDialog(null, "Any unsaved changes will be lost. Do you wish to save first?",null, JOptionPane.YES_NO_OPTION);
+				if(result == JOptionPane.YES_OPTION) {
+					openSaveDirectory();
+				}
+			}
 			checkCounter();
 			book.setEmptyAddressBook();
 			setEmptySelectedFile();
@@ -176,10 +191,12 @@ public class Controller implements ActionListener{
 			
 		case "EXIT":
 			
-			int result = JOptionPane.showConfirmDialog(null, "Any unsaved changes will be lost. Do you wish to save first?",null, JOptionPane.YES_NO_OPTION);
-			if(result == JOptionPane.YES_OPTION) {
-				openSaveDirectory();
-				System.exit(0);
+			if(!isSaved) {
+				int result = JOptionPane.showConfirmDialog(null, "Any unsaved changes will be lost. Do you wish to save first?",null, JOptionPane.YES_NO_OPTION);
+				if(result == JOptionPane.YES_OPTION) {
+					openSaveDirectory();
+					System.exit(0);
+				}
 			}
 			else {System.exit(0);}
 			break;
