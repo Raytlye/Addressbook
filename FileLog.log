@@ -1,0 +1,20 @@
+Sep 28, 2017 2:54:15 PM model.AddressBook addListener
+INFO: Adding class view.AddressTable to ArrayList listeners
+Sep 28, 2017 2:54:23 PM model.AddressBook setAddressBook
+INFO: Reading from C:\Users\lvonnied\eclipse-workspace\Swing Address book\addressbook.object to ArrayList<User> addressBook
+Sep 28, 2017 2:54:23 PM model.AddressBook getAddressBook
+INFO: Returning addressBook
+Sep 28, 2017 2:54:41 PM model.AddressBook getAddressBook
+INFO: Returning addressBook
+Sep 28, 2017 2:55:12 PM model.AddressBook updateUser
+INFO: Update Niggli at Index 1 and iterating through the listeners
+Sep 28, 2017 2:55:19 PM model.AddressBook getAddressBook
+INFO: Returning addressBook
+Sep 28, 2017 2:55:37 PM model.AddressBook updateUser
+INFO: Update Baumgartner at Index 2 and iterating through the listeners
+Sep 28, 2017 2:55:45 PM model.AddressBook getAddressBook
+INFO: Returning addressBook
+Sep 28, 2017 2:56:13 PM model.AddressBook updateUser
+INFO: Update Butz at Index 3 and iterating through the listeners
+Sep 28, 2017 2:56:20 PM model.AddressBook saveUser
+INFO: Saving addressbook to C:\Users\lvonnied\eclipse-workspace\Swing Address book\addressbook.object
