@@ -19,7 +19,7 @@ public class FileLogger {
 		}
 		
 		try {
-			fileHandler = new FileHandler("C:\\Users\\lvonnied\\eclipse-workspace\\Swing Address book\\FileLog.log");
+			fileHandler = new FileHandler("C:\\Users\\lvonnied\\eclipse-workspace\\Swing Address book\\FileLog.log", true);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
