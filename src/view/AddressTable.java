@@ -3,7 +3,6 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,7 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import logger.FileLogger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import model.AddressBook;
 import model.AddressBookListener;
 import model.Controller;
@@ -44,8 +45,7 @@ public class AddressTable extends JFrame implements AddressBookListener {
 	public JButton btnDelete;
 	private ListListener listener;
 	
-	FileLogger fl = new FileLogger();
-	Logger logger = fl.getLogger();
+	private static Logger logger = LogManager.getRootLogger();
 
 	public AddressTable(AddressBook book) {
 		

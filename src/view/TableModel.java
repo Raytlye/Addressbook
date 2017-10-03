@@ -1,12 +1,13 @@
 package view;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.table.AbstractTableModel;
 
-import logger.FileLogger;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import model.AddressBook;
 import model.User;
 
@@ -19,8 +20,7 @@ public class TableModel extends AbstractTableModel {
 	private static final String[] columnNames = {"Studiengang", "Nachname", "Vorname", "PID", "Vegan"};
 	private static ArrayList<User> userArray;
 	
-	FileLogger fl = new FileLogger();
-	Logger logger = fl.getLogger();
+	private static Logger logger = LogManager.getRootLogger();
 	
 	public TableModel(AddressBook book) {
 		
@@ -31,7 +31,7 @@ public class TableModel extends AbstractTableModel {
 	@Override
 	public int getColumnCount() {
 		
-		logger.info("Getting Column Count for " + TableModel.class);
+		//logger.info("Getting Column Count for " + TableModel.class);
 		return columnNames.length;
 		
 	}
@@ -39,7 +39,7 @@ public class TableModel extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		
-		logger.info("Getting Row Count for " + TableModel.class);
+		//logger.info("Getting Row Count for " + TableModel.class);
 		return userArray.size();
 		
 	}
@@ -50,34 +50,34 @@ public class TableModel extends AbstractTableModel {
 		switch(col) {
 		
 		case 0:
-			logger.info("Getting Studiengang at " + row);
+			logger.info("Getting Studiengang at column: " + col + " row: " + row);
 			return userArray.get(row).getStudiengang();
 			
 		case 1:
-			logger.info("Getting Nachname at " + row);
+			logger.info("Getting Nachname at column: " + col + " row: " + row);
 			return userArray.get(row).getNachname();
 			
 		case 2:
-			logger.info("Getting Vorname at " + row);
+			logger.info("Getting Vorname at column: " + col + " row: " + row);
 			return userArray.get(row).getVorname();
 			
 		case 3:
-			logger.info("Getting PID at " + row);
+			logger.info("Getting PID at column: " + col + " row: " + row);
 			return new Integer(userArray.get(row).getPid());
 			
 		case 4:
-			logger.info("Getting Vegan at " + row);
+			logger.info("Getting Vegan at column: " + col + " row: " + row);
 			return new Boolean(userArray.get(row).getVegan());
 			
 		default :
-			logger.log(Level.WARNING, "Couldn't retrieve value at Column: " + col + " Row: "+ row);
+			logger.log(Level.WARN, "Couldn't retrieve value at column: " + col + " row: "+ row);
 			return null;
 		}
 		
 	}
 	
 	public String getColumnName(int column) {
-		logger.info("Getting columnNames for " + TableModel.class);
+		//logger.info("Getting columnNames for " + TableModel.class);
 		return columnNames[column];
 		
 	}

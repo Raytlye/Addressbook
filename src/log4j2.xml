@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+         <RollingFile name="RollingFileAppender" fileName="logs/logFile.log"
+			filePattern="logs/logFile-%d{MM-dd-yyyy}.log">
+        <PatternLayout>
+            <Pattern>%d [%t] %p %c - %m%n</Pattern>
+        </PatternLayout>
+        <Policies>
+            <OnStartupTriggeringPolicy />
+            <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            <SizeBasedTriggeringPolicy size="50 MB"/>
+        </Policies>
+        <DefaultRolloverStrategy max="20" />
+    </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="RollingFileAppender" />
+        </Root>
+    </Loggers>
+</Configuration>

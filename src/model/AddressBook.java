@@ -2,9 +2,9 @@ package model;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
-import logger.FileLogger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class AddressBook {
 	
@@ -14,8 +14,7 @@ public class AddressBook {
 	private ArrayList<AddressBookListener> listeners 
 		= new ArrayList<AddressBookListener>();
 	
-	FileLogger fl = new FileLogger();
-	Logger logger = fl.getLogger();
+	private static Logger logger = LogManager.getRootLogger();
 	
 	public void setAddressBook(File file) {
 		

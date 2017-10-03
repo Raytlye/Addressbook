@@ -4,15 +4,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import logger.FileLogger;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class UserWriter {
 	
-	FileLogger fl = new FileLogger();
-	Logger logger = fl.getLogger();
+	private static Logger logger = LogManager.getRootLogger();
 	
 	public void write(ArrayList<User> users, File fileName) {
 		
@@ -23,7 +22,7 @@ public class UserWriter {
 					
 		}catch(Exception e){
 			
-			logger.log(Level.WARNING, "File couldn't been written", e);
+			logger.log(Level.WARN, "File couldn't been written", e);
 			
 		}
 

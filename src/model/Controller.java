@@ -3,14 +3,15 @@ package model;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.logging.Logger;
 
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-import logger.FileLogger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import view.AddressTable;
 import view.DeleteMessage;
 import view.ValueEditWindow;
@@ -26,8 +27,7 @@ public class Controller implements ActionListener{
 	private AddressTable adTable;
 	private boolean isSaved = true;
 	
-	FileLogger fl = new FileLogger();
-	Logger logger = fl.getLogger();
+	private static Logger logger = LogManager.getRootLogger();
 	
 	public Controller(AddressBook book, AddressTable adTable) {
 		
@@ -219,12 +219,15 @@ public class Controller implements ActionListener{
 					openSaveDirectory();
 					System.exit(0);
 				}
+				else {
+					System.exit(0);
+				}
 			}
 			else {System.exit(0);}
 			break;
 			
 		default :
-			logger.severe("Something went terribly wrong!");
+			logger.error("Something went terribly wrong!");
 			JDialog dialog = new JDialog();
 			JOptionPane.showMessageDialog(dialog,
 				    "Something went horribly wrong!",
