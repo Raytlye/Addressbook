@@ -1,0 +1,84 @@
+2017-10-04 11:11:37,373 [main] INFO  - Adding class view.AddressTable to ArrayList listeners
+2017-10-04 11:11:42,584 [AWT-EventQueue-0] INFO  - Opening JFileChooser at C:\Users\lvonnied\eclipse-workspace\Swing Address book
+2017-10-04 11:11:44,881 [AWT-EventQueue-0] INFO  - Reading from C:\Users\lvonnied\eclipse-workspace\Swing Address book\addressbook.object to ArrayList<User> addressBook
+2017-10-04 11:11:44,901 [AWT-EventQueue-0] INFO  - Setting read file to users Array
+2017-10-04 11:11:44,931 [AWT-EventQueue-0] INFO  - Opening addressbook.object and setting AddressBook to it
+2017-10-04 11:11:44,932 [AWT-EventQueue-0] INFO  - Checking attribute createTableCounter
+2017-10-04 11:11:44,932 [AWT-EventQueue-0] INFO  - Creating Panel, incrementing createTableCounter and updating GUI
+2017-10-04 11:11:44,932 [AWT-EventQueue-0] INFO  - Creating TablePanel
+2017-10-04 11:11:44,949 [AWT-EventQueue-0] INFO  - Returning addressBook
+2017-10-04 11:11:44,983 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 0
+2017-10-04 11:11:44,984 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 0
+2017-10-04 11:11:44,985 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 0
+2017-10-04 11:11:44,985 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 0
+2017-10-04 11:11:44,986 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 0
+2017-10-04 11:11:44,987 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 1
+2017-10-04 11:11:44,988 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 1
+2017-10-04 11:11:44,988 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 1
+2017-10-04 11:11:44,988 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 1
+2017-10-04 11:11:44,989 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 1
+2017-10-04 11:11:44,989 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 2
+2017-10-04 11:11:44,990 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 2
+2017-10-04 11:11:44,990 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 2
+2017-10-04 11:11:44,991 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 2
+2017-10-04 11:11:44,992 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 2
+2017-10-04 11:11:44,992 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 3
+2017-10-04 11:11:44,992 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 3
+2017-10-04 11:11:44,992 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 3
+2017-10-04 11:11:44,993 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 3
+2017-10-04 11:11:44,993 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 3
+2017-10-04 11:11:44,993 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 4
+2017-10-04 11:11:44,994 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 4
+2017-10-04 11:11:44,994 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 4
+2017-10-04 11:11:44,995 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 4
+2017-10-04 11:11:44,995 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 4
+2017-10-04 11:11:44,995 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 5
+2017-10-04 11:11:44,996 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 5
+2017-10-04 11:11:44,996 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 5
+2017-10-04 11:11:44,996 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 5
+2017-10-04 11:11:44,997 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 5
+2017-10-04 11:11:46,717 [AWT-EventQueue-0] INFO  - Opening class view.ValueInputWindow
+2017-10-04 11:11:50,217 [AWT-EventQueue-0] INFO  - Adding Nachname to addressBook and iterating through the listeners
+2017-10-04 11:11:50,217 [AWT-EventQueue-0] INFO  - Refreshing tableModel and disabling btnDelete and btnEdit
+2017-10-04 11:11:50,229 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 0
+2017-10-04 11:11:50,230 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 0
+2017-10-04 11:11:50,231 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 0
+2017-10-04 11:11:50,231 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 0
+2017-10-04 11:11:50,232 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 0
+2017-10-04 11:11:50,232 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 1
+2017-10-04 11:11:50,233 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 1
+2017-10-04 11:11:50,233 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 1
+2017-10-04 11:11:50,233 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 1
+2017-10-04 11:11:50,234 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 1
+2017-10-04 11:11:50,234 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 2
+2017-10-04 11:11:50,235 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 2
+2017-10-04 11:11:50,235 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 2
+2017-10-04 11:11:50,235 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 2
+2017-10-04 11:11:50,236 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 2
+2017-10-04 11:11:50,236 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 3
+2017-10-04 11:11:50,237 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 3
+2017-10-04 11:11:50,237 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 3
+2017-10-04 11:11:50,238 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 3
+2017-10-04 11:11:50,238 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 3
+2017-10-04 11:11:50,239 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 4
+2017-10-04 11:11:50,239 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 4
+2017-10-04 11:11:50,240 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 4
+2017-10-04 11:11:50,240 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 4
+2017-10-04 11:11:50,241 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 4
+2017-10-04 11:11:50,241 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 5
+2017-10-04 11:11:50,242 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 5
+2017-10-04 11:11:50,242 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 5
+2017-10-04 11:11:50,242 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 5
+2017-10-04 11:11:50,243 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 5
+2017-10-04 11:11:50,243 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 6
+2017-10-04 11:11:50,244 [AWT-EventQueue-0] INFO  - Getting Nachname at column: 1 row: 6
+2017-10-04 11:11:50,244 [AWT-EventQueue-0] INFO  - Getting Vorname at column: 2 row: 6
+2017-10-04 11:11:50,244 [AWT-EventQueue-0] INFO  - Getting PID at column: 3 row: 6
+2017-10-04 11:11:50,245 [AWT-EventQueue-0] INFO  - Getting Vegan at column: 4 row: 6
+2017-10-04 11:11:52,805 [AWT-EventQueue-0] INFO  - Opening Save Dialog because file wasn't saved yet
+2017-10-04 11:11:52,849 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 0
+2017-10-04 11:11:52,849 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 1
+2017-10-04 11:11:52,850 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 2
+2017-10-04 11:11:52,850 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 3
+2017-10-04 11:11:52,850 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 4
+2017-10-04 11:11:52,850 [AWT-EventQueue-0] INFO  - Getting Studiengang at column: 0 row: 5

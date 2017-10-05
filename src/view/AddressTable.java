@@ -3,7 +3,6 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,7 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import logger.FileLogger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import model.AddressBook;
 import model.AddressBookListener;
 import model.Controller;
@@ -44,11 +45,11 @@ public class AddressTable extends JFrame implements AddressBookListener {
 	public JButton btnDelete;
 	private ListListener listener;
 	
-	FileLogger fl = new FileLogger();
-	Logger logger = fl.getLogger();
+	private static Logger logger = LogManager.getRootLogger();
 
 	public AddressTable(AddressBook book) {
 		
+		logger.debug("Creating JFrame AddressTable");
 		this.book = book;
 		controller = new Controller(book, this);
 		listener = new ListListener(this);
@@ -116,7 +117,6 @@ public class AddressTable extends JFrame implements AddressBookListener {
 	
 	public void createTablePanel() {
 		
-		logger.info("Creating TablePanel");
 		tableModel = new TableModel(book);
 		btnPanel.setVisible(true);
 		tableIsVisible = true;
@@ -132,13 +132,16 @@ public class AddressTable extends JFrame implements AddressBookListener {
 		
 		tablePanel.add(scrollPane);
 		
+		tablePanel.setName("Addressbook Panel");
+		logger.debug("Creating TablePanel: {}", tablePanel.getName());
+		
 		add(tablePanel,BorderLayout.CENTER);
 		
 	}
 	
 	public void removeTablePanel() {
 		
-		logger.info("Removing TablePanel");
+		logger.debug("Removing {}", tablePanel.getName());
 		remove(tablePanel);
 		
 	}
@@ -146,7 +149,7 @@ public class AddressTable extends JFrame implements AddressBookListener {
 	@Override
 	public void userChanged() {
 		
-		logger.info("Refreshing tableModel and disabling btnDelete and btnEdit");
+		logger.debug("Refreshing tableModel and disabling buttons: {} {}", btnDelete.getName(), btnEdit.getName());
 		tableModel.fireTableDataChanged();
 		btnDelete.setEnabled(false);
 		btnEdit.setEnabled(false);

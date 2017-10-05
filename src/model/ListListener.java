@@ -1,19 +1,19 @@
 package model;
 
-import java.util.logging.Logger;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import logger.FileLogger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import view.AddressTable;
 
 public class ListListener implements ListSelectionListener{
 	
 	private AddressTable adTable;
 	
-	FileLogger fl = new FileLogger();
-	Logger logger = fl.getLogger();
+	private static Logger logger = LogManager.getRootLogger();
 	
 	public ListListener(AddressTable adTable) {
 		
@@ -24,7 +24,7 @@ public class ListListener implements ListSelectionListener{
 	@Override
 	public void valueChanged(ListSelectionEvent arg0) {
 		
-		logger.info("Enabled Button " + adTable.btnDelete.getName() + " " + adTable.btnEdit.getName());
+		logger.debug("Enabled Buttons: {} {}",adTable.btnDelete.getName(), adTable.btnEdit.getName());
 		adTable.btnDelete.setEnabled(true);
 		adTable.btnEdit.setEnabled(true);
 		

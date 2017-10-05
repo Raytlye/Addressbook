@@ -4,15 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import logger.FileLogger;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class UserReader {
 	
-	FileLogger fl = new FileLogger();
-	Logger logger = fl.getLogger();
+	private static Logger logger = LogManager.getRootLogger();
 	
 	@SuppressWarnings("unchecked")
 	public ArrayList<User> read(File file) {
@@ -23,7 +22,7 @@ public class UserReader {
 			users = (ArrayList<User>) objectInputStream.readObject();
 			
 		} catch (Exception e) {
-        	logger.log(Level.WARNING, "Reading file failed and returning empty ArrayList", e);
+        	logger.log(Level.WARN, "The file wasn't readable, therefor returned an empty list", e);
 			users = new ArrayList<User>();
 			return users;
     		
