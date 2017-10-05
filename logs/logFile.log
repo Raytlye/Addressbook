@@ -1,0 +1,3 @@
+2017-10-05 16:03:37,533 [AWT-EventQueue-0] INFO  - User pressed Exit
+2017-10-05 16:03:39,354 [AWT-EventQueue-0] WARN  - Opening Save Dialog because file wasn't saved yet
+2017-10-05 16:03:47,453 [AWT-EventQueue-0] WARN  - Opening method to save into a new file because there is no existing file to save into
