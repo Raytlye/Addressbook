@@ -22,7 +22,7 @@ public class UserReader {
 			users = (ArrayList<User>) objectInputStream.readObject();
 			
 		} catch (Exception e) {
-        	logger.log(Level.WARN, "Reading file failed and returning empty ArrayList", e);
+        	logger.log(Level.WARN, "The file wasn't readable, therefor returned an empty list", e);
 			users = new ArrayList<User>();
 			return users;
     		

@@ -16,13 +16,13 @@ public class UserWriter {
 	public void write(ArrayList<User> users, File fileName) {
 		
 		try (ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream(fileName))) {
-			logger.info("Writing file...");
+			logger.info("Writing address book into {}", fileName);
 			writer.writeObject(users);
 			System.out.println("File saved");
 					
 		}catch(Exception e){
 			
-			logger.log(Level.WARN, "File couldn't been written", e);
+			logger.log(Level.ERROR, "File couldn't been written", e);
 			
 		}
 

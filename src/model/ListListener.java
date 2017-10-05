@@ -24,7 +24,7 @@ public class ListListener implements ListSelectionListener{
 	@Override
 	public void valueChanged(ListSelectionEvent arg0) {
 		
-		logger.info("Enabled Button " + adTable.btnDelete.getName() + " " + adTable.btnEdit.getName());
+		logger.debug("Enabled Buttons: {} {}",adTable.btnDelete.getName(), adTable.btnEdit.getName());
 		adTable.btnDelete.setEnabled(true);
 		adTable.btnEdit.setEnabled(true);
 		

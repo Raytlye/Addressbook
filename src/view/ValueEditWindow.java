@@ -10,8 +10,12 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import model.AddressBook;
 import model.User;
@@ -33,6 +37,7 @@ public class ValueEditWindow extends JDialog implements ActionListener {
 	@SuppressWarnings("unused")
 	private JTable table;
 	private int index;
+	private static Logger logger = LogManager.getRootLogger();
 
 	public ValueEditWindow(JFrame parent, AddressBook book, JTable table) {
 		super(parent, true);
@@ -131,6 +136,7 @@ public class ValueEditWindow extends JDialog implements ActionListener {
 	
 	public static boolean isNumeric(String str)  {
 		
+		logger.debug("Testing if {} is numeric", str);
 		try  {
 			@SuppressWarnings("unused")
 			int i = Integer.parseInt(str); 
@@ -158,6 +164,23 @@ public class ValueEditWindow extends JDialog implements ActionListener {
 			
 			dispose();
 			
+		} else if(!isNumeric(txtPID.getText())){
+			
+			logger.warn("PID was not numeric");
+			JDialog dialog = new JDialog();
+			JOptionPane.showMessageDialog(dialog,
+					"PID must be a number!",
+					"Warning",
+			JOptionPane.WARNING_MESSAGE);
+			
+		} else {
+			
+			logger.warn("One or more fields were empty");
+			JDialog dialog = new JDialog();
+			JOptionPane.showMessageDialog(dialog,
+					"Fields cannot be empty!",
+					"Warning",
+			JOptionPane.WARNING_MESSAGE);
 		}
 		
 	} 

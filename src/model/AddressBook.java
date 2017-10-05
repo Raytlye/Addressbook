@@ -18,28 +18,27 @@ public class AddressBook {
 	
 	public void setAddressBook(File file) {
 		
-		logger.info("Reading from " + file + " to ArrayList<User> addressBook");
+		logger.info("Reading from {} to address book", file.getAbsolutePath());
 		addressBook = reader.read(file);
 		
 	}
 	
 	public void setEmptyAddressBook() {
 		
-		logger.info("Setting addressBook as a new ArrayList<User>");
+		logger.debug("Setting address book as a new ArrayList<User>");
 		addressBook = new ArrayList<User>();
 		
 	}
 	
 	public void saveUser(File file) {
 		
-		logger.info("Saving addressbook to " + file);
 		writer.write(addressBook, file);
 		
 	}
 	
 	public void addUser(User user) {
 		
-		logger.info("Adding " + user.getNachname() + " to addressBook and iterating through the listeners");
+		logger.debug("Adding {} to address book and iterating through the listeners", user.getNachname());
 		
 		addressBook.add(user);
 		
@@ -53,7 +52,7 @@ public class AddressBook {
 	
 	public void removeUser(User user) {
 		
-		logger.info("Removing " + user.getNachname() + " from addressBook and iterating through the listeners");
+		logger.debug("Removing {} from address book and iterating through the listeners", user.getNachname());
 		
 		addressBook.remove(user);
 		for(AddressBookListener listener : listeners) {
@@ -66,7 +65,7 @@ public class AddressBook {
 	
 	public void updateUser(User updatedUser, int index) {
 		
-		logger.info("Update " + updatedUser.getNachname() + " at Index " + index + " and iterating through the listeners");
+		logger.debug("Update {} at Index: {} and iterating through the listeners", updatedUser.getNachname(), index);
 		User user = addressBook.get(index);
 		
 		user.setStudiengang(updatedUser.getStudiengang());
@@ -85,7 +84,7 @@ public class AddressBook {
 	
 	public ArrayList<User> getAddressBook() {
 		
-		logger.info("Returning addressBook");
+		logger.debug("Returning {}", addressBook);
 		
 		return addressBook;
 		
@@ -93,7 +92,7 @@ public class AddressBook {
 	
 	public void addListener(AddressBookListener listener) {
 		
-		logger.info("Adding " + listener.getClass() + " to ArrayList listeners");
+		logger.debug("Adding listener to ArrayList listeners");
 		
 		listeners.add(listener);
 		

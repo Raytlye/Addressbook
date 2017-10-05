@@ -12,7 +12,11 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import model.AddressBook;
 import model.User;
@@ -30,6 +34,7 @@ public class ValueInputWindow extends JDialog implements ActionListener {
 	private JButton btnCancel;
 	private JCheckBox chcbxVegan;
 	private AddressBook book;
+	private static Logger logger = LogManager.getRootLogger();
 	
 	public ValueInputWindow(JFrame parent, AddressBook book) {
 		super(parent, true);
@@ -148,18 +153,35 @@ public class ValueInputWindow extends JDialog implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if(!txtStudiengang.getText().isEmpty()&&!txtNachname.getText().isEmpty()&&!txtVorname.getText().isEmpty()&&ValueEditWindow.isNumeric(txtPID.getText())) {
+			
+			String studiengang = txtStudiengang.getText();
+			String nachname = txtNachname.getText();
+			String vorname = txtVorname.getText();
+			int pid = Integer.parseInt(txtPID.getText());
+			boolean vegan = chcbxVegan.isSelected();
+			
+			User user = new User(studiengang, nachname, vorname, pid, vegan);
+			book.addUser(user);
+			
+			dispose();
+			
+		} else if(!ValueEditWindow.isNumeric(txtPID.getText())){
 		
-		String studiengang = txtStudiengang.getText();
-		String nachname = txtNachname.getText();
-		String vorname = txtVorname.getText();
-		int pid = Integer.parseInt(txtPID.getText());
-		boolean vegan = chcbxVegan.isSelected();
+			logger.warn("PID was not numeric");
+			JDialog dialog = new JDialog();
+			JOptionPane.showMessageDialog(dialog,
+					"PID must be a number!",
+					"Warning",
+			JOptionPane.WARNING_MESSAGE);
 		
-		User user = new User(studiengang, nachname, vorname, pid, vegan);
-		book.addUser(user);
+		} else {
 		
-		dispose();
+			logger.warn("One or more fields were empty");
+			JDialog dialog = new JDialog();
+			JOptionPane.showMessageDialog(dialog,
+					"Fields cannot be empty!",
+					"Warning",
+			JOptionPane.WARNING_MESSAGE);
 		}
 	}
-
 }
