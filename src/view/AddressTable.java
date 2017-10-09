@@ -45,10 +45,11 @@ public class AddressTable extends JFrame implements AddressBookListener {
 	public JButton btnDelete;
 	private ListListener listener;
 	
-	private static Logger logger = LogManager.getRootLogger();
+	private static Logger logger;
 
 	public AddressTable(AddressBook book) {
 		
+		logger = LogManager.getRootLogger();
 		logger.debug("Creating JFrame AddressTable");
 		this.book = book;
 		controller = new Controller(book, this);
